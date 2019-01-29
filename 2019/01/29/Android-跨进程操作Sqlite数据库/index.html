@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Android,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="理工男，记录工作中学习的经验和学到的技术、分享给有需要的人。">
-<meta name="keywords" content="Android开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="博客空间">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+<meta name="description" content="最近开发了一个日志收集和上传的功能，主要包括运行时日志和崩溃日志两个类型。 崩溃日志：崩溃日志的收集要容易点，当捕获到崩溃信息后，直接在本地生成一个文件，将崩溃信息写入文件中，等到下一次上传 运行时日志运行时日志就是我们通过Log往控制台打印出来的调试信息，因此它的收集就没有崩溃日志那么简单了，我们通过自定义的LogUtil工具类将我们打印的日志信息重定向到控制类里，然后在保存到数据库中，当上传时">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 跨进程操作Sqlite数据库">
+<meta property="og:url" content="http://yoursite.com/2019/01/29/Android-跨进程操作Sqlite数据库/index.html">
 <meta property="og:site_name" content="博客空间">
-<meta property="og:description" content="理工男，记录工作中学习的经验和学到的技术、分享给有需要的人。">
+<meta property="og:description" content="最近开发了一个日志收集和上传的功能，主要包括运行时日志和崩溃日志两个类型。 崩溃日志：崩溃日志的收集要容易点，当捕获到崩溃信息后，直接在本地生成一个文件，将崩溃信息写入文件中，等到下一次上传 运行时日志运行时日志就是我们通过Log往控制台打印出来的调试信息，因此它的收集就没有崩溃日志那么简单了，我们通过自定义的LogUtil工具类将我们打印的日志信息重定向到控制类里，然后在保存到数据库中，当上传时">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-29T06:40:48.668Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客空间">
-<meta name="twitter:description" content="理工男，记录工作中学习的经验和学到的技术、分享给有需要的人。">
+<meta name="twitter:title" content="Android 跨进程操作Sqlite数据库">
+<meta name="twitter:description" content="最近开发了一个日志收集和上传的功能，主要包括运行时日志和崩溃日志两个类型。 崩溃日志：崩溃日志的收集要容易点，当捕获到崩溃信息后，直接在本地生成一个文件，将崩溃信息写入文件中，等到下一次上传 运行时日志运行时日志就是我们通过Log往控制台打印出来的调试信息，因此它的收集就没有崩溃日志那么简单了，我们通过自定义的LogUtil工具类将我们打印的日志信息重定向到控制类里，然后在保存到数据库中，当上传时">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/29/Android-跨进程操作Sqlite数据库/">
 
 
 
 
 
-  <title>归档 | 博客空间</title>
+  <title>Android 跨进程操作Sqlite数据库 | 博客空间</title>
   
 
 
@@ -144,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -280,72 +281,202 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 1 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/29/Android-跨进程操作Sqlite数据库/">
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/29/Android-跨进程操作Sqlite数据库/" itemprop="url">
-              
-                <span itemprop="name">Android 跨进程操作Sqlite数据库</span>
-              
-            </a>
-        
-      </h2>
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SidXu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-29T11:21:24+08:00" content="2019-01-29">
-          01-29
-        </time>
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="博客空间">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android 跨进程操作Sqlite数据库</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-29T14:40:48+08:00">
+                2019-01-29
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/01/29/Android-跨进程操作Sqlite数据库/" class="leancloud_visitors" data-flag-title="Android 跨进程操作Sqlite数据库">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count">�C</span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近开发了一个日志收集和上传的功能，主要包括运行时日志和崩溃日志两个类型。</p>
+<h5 id="崩溃日志："><a href="#崩溃日志：" class="headerlink" title="崩溃日志："></a>崩溃日志：</h5><p>崩溃日志的收集要容易点，当捕获到崩溃信息后，直接在本地生成一个文件，将崩溃信息写入文件中，等到下一次上传</p>
+<h5 id="运行时日志"><a href="#运行时日志" class="headerlink" title="运行时日志"></a>运行时日志</h5><p>运行时日志就是我们通过Log往控制台打印出来的调试信息，因此它的收集就没有崩溃日志那么简单了，我们通过自定义的LogUtil工具类将我们打印的日志信息重定向到控制类里，然后在保存到数据库中，当上传时从数据中读取日志信息生成文件，再跟崩溃日志一样上传</p>
+<h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><p>由于我们的应用内是多进程的，有一个主进程和一个服务进程，由于服务进程具有保活功能，因而日志的上传一般放在服务进程中，但是连个进程都会打印运行时日志，所以日志收集的功能两个进程都需要有的，日志信息都需要保存到一个数据库中，因此就涉及到了跨进程访问数据库。</p>
+<h5 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h5><p>如果我们不加措施的让两个进程同时访问数据库，对于读操作来说是没有什么问题的，但是对于写操作就会有问题了。SQLite的锁机制允许多个读，但是一次只允许一个写。写锁会在写期间排他地锁定数据库，其他进程在此期间不能访问数据库。所以说当两个进程同时往一个数据库里写时系统就会抛出异常，即使catch异常，也会导致数据的丢失。经过一番研究之后，决定通过ContentProvicder的方式操作数据库，成功的解决了跨进程操作数据库的问题</p>
+<p><a href="https://blog.csdn.net/zuolongsnail/article/details/6566317" target="_blank" rel="noopener">Android中ContentProvider组件详解</a></p>
+<p><a href="http://www.2cto.com/kf/201404/296974.html" target="_blank" rel="noopener">Android四大组件–ContentProvider详解</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpeg" alt="SidXu wechat" style="width: 200px; max-width: 100%;">
+    <div>联系作者</div>
+</div>
+
       </div>
+    
 
-    </header>
-  </article>
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
 
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpeg" alt="SidXu 微信支付">
+        <p>微信支付</p>
+      </div>
+    
 
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
-    </div>
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -353,6 +484,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -373,8 +508,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -452,6 +596,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#崩溃日志："><span class="nav-number">1.</span> <span class="nav-text">崩溃日志：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#运行时日志"><span class="nav-number">2.</span> <span class="nav-text">运行时日志</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#问题"><span class="nav-number">3.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#解决方案"><span class="nav-number">4.</span> <span class="nav-text">解决方案</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -595,6 +755,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
