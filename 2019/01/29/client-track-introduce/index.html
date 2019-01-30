@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://shorthand.oss-cn-beijing.aliyuncs.com/image/sdk_track_viewpath.png">
 <meta property="og:image" content="https://shorthand.oss-cn-beijing.aliyuncs.com/image/sdk_track_%E5%8F%AF%E8%A7%86%E5%8C%96%E6%B5%81%E7%A8%8B.png">
-<meta property="og:updated_time" content="2019-01-30T09:35:25.414Z">
+<meta property="og:updated_time" content="2019-01-30T09:47:05.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="客户端埋点方案介绍">
 <meta name="twitter:description" content="一、概念构建一个数据平台，大体上包括数据采集、数据上报、数据存储、数据计算以及数据可视化展示等几个重要的环节。其中，数据采集与上报是整个流程中重要的一环，只有确保前端数据生产的全面、准确、及时，最终产生的数据结果才是可靠的、有价值的。 为了解决前端埋点的准确性、及时性、开发效率等问题，业内各家公司从不同角度，提出了多种技术方案，这些方案大体上可以归为三类： 1、代码埋点：在需要埋点的节点上，手动调">
@@ -331,7 +331,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-01-30T17:35:25+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-30T17:47:05+08:00">
                 2019-01-30
               </time>
             
@@ -422,8 +422,8 @@
 <p><img src="https://shorthand.oss-cn-beijing.aliyuncs.com/image/sdk_track_%E5%8F%AF%E8%A7%86%E5%8C%96%E6%B5%81%E7%A8%8B.png" alt="可视化流程"></p>
 <p>客户端打开APP之后，会从服务端拉取包含View标识的配置文件，就可以针对具体View进行埋点了。埋点信息的查询可通过与View标识关联的描述信息进行查询。</p>
 <blockquote>
-<p>优点：开发、维护成本低；可以追溯历史数据；对业务代码侵入小</p>
-<p>缺点：高额流量和计算成本；无法灵活收集属性</p>
+<p>优点：开发、维护成本低；可以按需埋点，灵活性好；对业务代码侵入小</p>
+<p>缺点：界面的结构发生变化时，圈选的待监测元素可能会失效；支持的控件和事件类型有限；无法灵活地收集到上下文属性</p>
 </blockquote>
 <h4 id="3、全埋点"><a href="#3、全埋点" class="headerlink" title="3、全埋点"></a>3、全埋点</h4><p>它并不是真正的不需要埋点，而是前端自动采集全部事件并上报埋点数据，在后端数据计算时过滤出有用数据，代表方案是国内的GrowingIO。</p>
 <p>基本原理：利用AOP，在预编译阶段实现在不修改源代码的情况下给所有的View点击事件的回调方法内部添加埋点信息。</p>
@@ -438,8 +438,8 @@
 <p>以上代码在编译后就会在工程中所有实现了OnClickListener接口的onClick方法内部插入以上代码，从而对View的点击事件进行全埋点。</p>
 <h5 id="数据查询"><a href="#数据查询" class="headerlink" title="数据查询"></a>数据查询</h5><p>View事件埋点信息的搜集过程中同样会搜集当前View的标识，也通过可视化平台将View标识和事件描述信息进行关联，然后通过查询描述信息就能查询到View事件了，很方便。</p>
 <blockquote>
-<p>优点：开发、维护成本低；可以按需埋点，灵活性好；对业务代码侵入小</p>
-<p>缺点：界面的结构发生变化时，圈选的待监测元素可能会失效；支持的控件和事件类型有限；无法灵活地收集到上下文属性</p>
+<p>优点：开发、维护成本低；可以追溯历史数据；对业务代码侵入小</p>
+<p>缺点：高额流量和计算成本；无法灵活收集属性</p>
 </blockquote>
 
       
