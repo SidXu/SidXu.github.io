@@ -1,59 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>客户端埋点方案介绍</title>
-      <link href="/2019/01/29/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88%E4%BB%8B%E7%BB%8D/"/>
-      <url>/2019/01/29/%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88%E4%BB%8B%E7%BB%8D/</url>
-      
-        <content type="html"><![CDATA[<h3 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h3><p>构建一个数据平台，大体上包括数据采集、数据上报、数据存储、数据计算以及数据可视化展示等几个重要的环节。其中，数据采集与上报是整个流程中重要的一环，只有确保前端数据生产的全面、准确、及时，最终产生的数据结果才是可靠的、有价值的。</p><p>为了解决前端埋点的准确性、及时性、开发效率等问题，业内各家公司从不同角度，提出了多种技术方案，这些方案大体上可以归为三类：</p><p>1、代码埋点：在需要埋点的节点上，手动调用埋点方法，实现埋点数据的获取；</p><p>2、可视化埋点：通过可视化的方式配置采集节点并生成配置文件，客户端解析配置文件，在需要埋点的节点自动添加埋点代码，并上报埋点数据；</p><p>3、全埋点：客户端自动采集全部埋点数据并上报，通过可视化的方式查询埋点数据并显示；</p><h3 id="二、介绍"><a href="#二、介绍" class="headerlink" title="二、介绍"></a>二、介绍</h3><h4 id="1、代码埋点"><a href="#1、代码埋点" class="headerlink" title="1、代码埋点"></a>1、代码埋点</h4><p>在需要埋点的节点调用接口直接上传或者定时上传埋点数据，友盟、百度统计等第三方数据统计服务商大都采用这种方案；</p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">button.setOnClickListener(new View.OnClickListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> void onClick(View v) &#123;</span><br><span class="line">        <span class="comment">// 业务代码</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="comment">// 埋点上报</span></span><br><span class="line">        <span class="keyword">val</span> properties = JSONObject()</span><br><span class="line">        properties.put(<span class="string">"page"</span>, <span class="string">"MainActivity"</span>)</span><br><span class="line">        properties.put(<span class="string">"type"</span>, <span class="string">"围棋"</span>)</span><br><span class="line">        TrackerManager.instance.commonTracker.onEvent(<span class="string">"click"</span>, properties)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><blockquote><p>优点：使用灵活、方便设置自定义业务相关的属性</p><p>缺点：埋点成本高、更新成本高</p></blockquote><h4 id="2、可视化埋点"><a href="#2、可视化埋点" class="headerlink" title="2、可视化埋点"></a>2、可视化埋点</h4><p>通过可视化工具配置采集节点，在前端自动解析配置并上报埋点数据，从而实现所谓的“无痕埋点”，代表方案是已经开源的<a href="https://github.com/mixpanel" target="_blank" rel="noopener">Mixpanel</a>；</p><h5 id="View标识"><a href="#View标识" class="headerlink" title="View标识"></a>View标识</h5><p>为了自动生成事件标识，我们需要获取每个控件自身的ID、类名以及位于所属父组件的Index等特征信息，并逐级向上遍历找到根节点。根节点一般是手动标记的，如果没有标记则默认是视图层次树的顶层节点。最后，将遍历产生的路径上所有节点的特征信息组合在一起，就是这个View的标识。</p><p><img src="https://shorthand.oss-cn-beijing.aliyuncs.com/image/sdk_track_viewpath.png" alt="View标识"></p><p>上面选中View的标识是：</p><blockquote><p> ContentFrameLayout/ConstraintLayout[0]/AppCompatButton[0]#btClick</p></blockquote><p>在同一个页面，View标识是唯一的，再加上页面名称和包名，就能够在当前App中唯一确定一个View对象，唯一确定View对象之后，就能够针对当前View进行埋点。</p><p><u><em>由于需求的改变，同一页面在不同版本肯能会发生变化，因此需要做容错处理。</em></u></p><h5 id="可视化平台"><a href="#可视化平台" class="headerlink" title="可视化平台"></a>可视化平台</h5><p>可视化平台一般通过Web页面展示，客户端通过Socket与Web进行连接：</p><p><img src="https://shorthand.oss-cn-beijing.aliyuncs.com/image/sdk_track_%E5%8F%AF%E8%A7%86%E5%8C%96%E6%B5%81%E7%A8%8B.png" alt="可视化流程"></p><p>客户端打开APP之后，会从服务端拉取包含View标识的配置文件，就可以针对具体View进行埋点了。埋点信息的查询可通过与View标识关联的描述信息进行查询。</p><blockquote><p>优点：开发、维护成本低；可以追溯历史数据；对业务代码侵入小</p><p>缺点：高额流量和计算成本；无法灵活收集属性</p></blockquote><h4 id="三、全埋点"><a href="#三、全埋点" class="headerlink" title="三、全埋点"></a>三、全埋点</h4><p>它并不是真正的不需要埋点，而是前端自动采集全部事件并上报埋点数据，在后端数据计算时过滤出有用数据，代表方案是国内的GrowingIO。</p><p>基本原理：利用AOP，在预编译阶段实现在不修改源代码的情况下给所有的View点击事件的回调方法内部添加埋点信息。</p><blockquote><p>AOP为Aspect Oriented Programming的缩写，意为：面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p></blockquote><h5 id="AspectJ"><a href="#AspectJ" class="headerlink" title="AspectJ"></a>AspectJ</h5><blockquote><p>AspectJ是一个java实现的AOP框架，它能够对java代码进行AOP编译（一般在编译期进行），让java代码具有AspectJ的AOP功能，可以这样说AspectJ是目前实现AOP框架中最成熟，功能最丰富的语言，更幸运的是，AspectJ与java程序完全兼容，几乎是无缝关联，因此对于有java编程基础的工程师，上手和使用都非常容易。</p></blockquote><p>下面我们以一个例子，来看一下如何对点击事件进行全埋点的：</p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewAspectJ</span> </span>&#123;</span><br><span class="line"><span class="meta">@After(<span class="meta-string">"execution(void android.view.View.OnClickListener.onClick(..)) &amp;&amp; args(view)"</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">onViewClickAOP</span><span class="params">(view: <span class="type">View</span>)</span></span> &#123;</span><br><span class="line">        TrackerManager.instance.viewTracker.onClick(view)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>以上代码在编译后就会在工程中所有实现了OnClickListener接口的onClick方法内部插入以上代码，从而对View的点击事件进行全埋点。</p><h5 id="数据查询"><a href="#数据查询" class="headerlink" title="数据查询"></a>数据查询</h5><p>View事件埋点信息的搜集过程中同样会搜集当前View的标识，也通过可视化平台将View标识和事件描述信息进行关联，然后通过查询描述信息就能查询到View事件了，很方便。</p><blockquote><p>优点：开发、维护成本低；可以按需埋点，灵活性好；对业务代码侵入小</p><p>缺点：界面的结构发生变化时，圈选的待监测元素可能会失效；支持的控件和事件类型有限；无法灵活地收集到上下文属性</p></blockquote>]]></content>
-      
-      
+<search>
+  <entry>
+    <title><![CDATA[客户端埋点方案介绍]]></title>
+    <url>%2F2019%2F01%2F29%2F%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%9F%8B%E7%82%B9%E6%96%B9%E6%A1%88%E4%BB%8B%E7%BB%8D%2F</url>
+    <content type="text"><![CDATA[一、概念构建一个数据平台，大体上包括数据采集、数据上报、数据存储、数据计算以及数据可视化展示等几个重要的环节。其中，数据采集与上报是整个流程中重要的一环，只有确保前端数据生产的全面、准确、及时，最终产生的数据结果才是可靠的、有价值的。 为了解决前端埋点的准确性、及时性、开发效率等问题，业内各家公司从不同角度，提出了多种技术方案，这些方案大体上可以归为三类： 1、代码埋点：在需要埋点的节点上，手动调用埋点方法，实现埋点数据的获取； 2、可视化埋点：通过可视化的方式配置采集节点并生成配置文件，客户端解析配置文件，在需要埋点的节点自动添加埋点代码，并上报埋点数据； 3、全埋点：客户端自动采集全部埋点数据并上报，通过可视化的方式查询埋点数据并显示； 二、介绍1、代码埋点在需要埋点的节点调用接口直接上传或者定时上传埋点数据，友盟、百度统计等第三方数据统计服务商大都采用这种方案； 123456789101112button.setOnClickListener(new View.OnClickListener() &#123; @Override public void onClick(View v) &#123; // 业务代码 // ... // 埋点上报 val properties = JSONObject() properties.put("page", "MainActivity") properties.put("type", "围棋") TrackerManager.instance.commonTracker.onEvent("click", properties) &#125;&#125;); 优点：使用灵活、方便设置自定义业务相关的属性 缺点：埋点成本高、更新成本高 2、可视化埋点通过可视化工具配置采集节点，在前端自动解析配置并上报埋点数据，从而实现所谓的“无痕埋点”，代表方案是已经开源的Mixpanel； View标识为了自动生成事件标识，我们需要获取每个控件自身的ID、类名以及位于所属父组件的Index等特征信息，并逐级向上遍历找到根节点。根节点一般是手动标记的，如果没有标记则默认是视图层次树的顶层节点。最后，将遍历产生的路径上所有节点的特征信息组合在一起，就是这个View的标识。 上面选中View的标识是： ContentFrameLayout/ConstraintLayout[0]/AppCompatButton[0]#btClick 在同一个页面，View标识是唯一的，再加上页面名称和包名，就能够在当前App中唯一确定一个View对象，唯一确定View对象之后，就能够针对当前View进行埋点。 由于需求的改变，同一页面在不同版本肯能会发生变化，因此需要做容错处理。 可视化平台可视化平台一般通过Web页面展示，客户端通过Socket与Web进行连接： 客户端打开APP之后，会从服务端拉取包含View标识的配置文件，就可以针对具体View进行埋点了。埋点信息的查询可通过与View标识关联的描述信息进行查询。 优点：开发、维护成本低；可以追溯历史数据；对业务代码侵入小 缺点：高额流量和计算成本；无法灵活收集属性 3、全埋点它并不是真正的不需要埋点，而是前端自动采集全部事件并上报埋点数据，在后端数据计算时过滤出有用数据，代表方案是国内的GrowingIO。 基本原理：利用AOP，在预编译阶段实现在不修改源代码的情况下给所有的View点击事件的回调方法内部添加埋点信息。 AOP为Aspect Oriented Programming的缩写，意为：面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。 AspectJ AspectJ是一个java实现的AOP框架，它能够对java代码进行AOP编译（一般在编译期进行），让java代码具有AspectJ的AOP功能，可以这样说AspectJ是目前实现AOP框架中最成熟，功能最丰富的语言，更幸运的是，AspectJ与java程序完全兼容，几乎是无缝关联，因此对于有java编程基础的工程师，上手和使用都非常容易。 下面我们以一个例子，来看一下如何对点击事件进行全埋点的： 1234567@Aspectclass ViewAspectJ &#123; @After("execution(void android.view.View.OnClickListener.onClick(..)) &amp;&amp; args(view)") fun onViewClickAOP(view: View) &#123; TrackerManager.instance.viewTracker.onClick(view) &#125;&#125; 以上代码在编译后就会在工程中所有实现了OnClickListener接口的onClick方法内部插入以上代码，从而对View的点击事件进行全埋点。 数据查询View事件埋点信息的搜集过程中同样会搜集当前View的标识，也通过可视化平台将View标识和事件描述信息进行关联，然后通过查询描述信息就能查询到View事件了，很方便。 优点：开发、维护成本低；可以按需埋点，灵活性好；对业务代码侵入小 缺点：界面的结构发生变化时，圈选的待监测元素可能会失效；支持的控件和事件类型有限；无法灵活地收集到上下文属性]]></content>
       <categories>
-          
-          <category> 设计 </category>
-          
+        <category>设计</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 客户端 </tag>
-            
-            <tag> 埋点 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Android 跨进程操作Sqlite数据库</title>
-      <link href="/2019/01/29/Android-%E8%B7%A8%E8%BF%9B%E7%A8%8B%E6%93%8D%E4%BD%9CSqlite%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-      <url>/2019/01/29/Android-%E8%B7%A8%E8%BF%9B%E7%A8%8B%E6%93%8D%E4%BD%9CSqlite%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
-      
-        <content type="html"><![CDATA[<p>最近开发了一个日志收集和上传的功能，主要包括运行时日志和崩溃日志两个类型。</p><h5 id="崩溃日志："><a href="#崩溃日志：" class="headerlink" title="崩溃日志："></a>崩溃日志：</h5><p>崩溃日志的收集要容易点，当捕获到崩溃信息后，直接在本地生成一个文件，将崩溃信息写入文件中，等到下一次上传</p><h5 id="运行时日志"><a href="#运行时日志" class="headerlink" title="运行时日志"></a>运行时日志</h5><p>运行时日志就是我们通过Log往控制台打印出来的调试信息，因此它的收集就没有崩溃日志那么简单了，我们通过自定义的LogUtil工具类将我们打印的日志信息重定向到控制类里，然后在保存到数据库中，当上传时从数据中读取日志信息生成文件，再跟崩溃日志一样上传</p><h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><p>由于我们的应用内是多进程的，有一个主进程和一个服务进程，由于服务进程具有保活功能，因而日志的上传一般放在服务进程中，但是连个进程都会打印运行时日志，所以日志收集的功能两个进程都需要有的，日志信息都需要保存到一个数据库中，因此就涉及到了跨进程访问数据库。</p><h5 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h5><p>如果我们不加措施的让两个进程同时访问数据库，对于读操作来说是没有什么问题的，但是对于写操作就会有问题了。SQLite的锁机制允许多个读，但是一次只允许一个写。写锁会在写期间排他地锁定数据库，其他进程在此期间不能访问数据库。所以说当两个进程同时往一个数据库里写时系统就会抛出异常，即使catch异常，也会导致数据的丢失。经过一番研究之后，决定通过ContentProvicder的方式操作数据库，成功的解决了跨进程操作数据库的问题</p><p><a href="https://blog.csdn.net/zuolongsnail/article/details/6566317" target="_blank" rel="noopener">Android中ContentProvider组件详解</a></p><p><a href="http://www.2cto.com/kf/201404/296974.html" target="_blank" rel="noopener">Android四大组件–ContentProvider详解</a></p>]]></content>
-      
-      
+      <tags>
+        <tag>客户端</tag>
+        <tag>埋点</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Android 跨进程操作Sqlite数据库]]></title>
+    <url>%2F2019%2F01%2F29%2FAndroid-%E8%B7%A8%E8%BF%9B%E7%A8%8B%E6%93%8D%E4%BD%9CSqlite%E6%95%B0%E6%8D%AE%E5%BA%93%2F</url>
+    <content type="text"><![CDATA[最近开发了一个日志收集和上传的功能，主要包括运行时日志和崩溃日志两个类型。 崩溃日志：崩溃日志的收集要容易点，当捕获到崩溃信息后，直接在本地生成一个文件，将崩溃信息写入文件中，等到下一次上传 运行时日志运行时日志就是我们通过Log往控制台打印出来的调试信息，因此它的收集就没有崩溃日志那么简单了，我们通过自定义的LogUtil工具类将我们打印的日志信息重定向到控制类里，然后在保存到数据库中，当上传时从数据中读取日志信息生成文件，再跟崩溃日志一样上传 问题由于我们的应用内是多进程的，有一个主进程和一个服务进程，由于服务进程具有保活功能，因而日志的上传一般放在服务进程中，但是连个进程都会打印运行时日志，所以日志收集的功能两个进程都需要有的，日志信息都需要保存到一个数据库中，因此就涉及到了跨进程访问数据库。 解决方案如果我们不加措施的让两个进程同时访问数据库，对于读操作来说是没有什么问题的，但是对于写操作就会有问题了。SQLite的锁机制允许多个读，但是一次只允许一个写。写锁会在写期间排他地锁定数据库，其他进程在此期间不能访问数据库。所以说当两个进程同时往一个数据库里写时系统就会抛出异常，即使catch异常，也会导致数据的丢失。经过一番研究之后，决定通过ContentProvicder的方式操作数据库，成功的解决了跨进程操作数据库的问题 Android中ContentProvider组件详解 Android四大组件–ContentProvider详解]]></content>
       <categories>
-          
-          <category> 设计 </category>
-          
+        <category>设计</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> Android </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
 </search>

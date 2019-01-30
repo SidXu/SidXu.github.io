@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://shorthand.oss-cn-beijing.aliyuncs.com/image/sdk_track_viewpath.png">
 <meta property="og:image" content="https://shorthand.oss-cn-beijing.aliyuncs.com/image/sdk_track_%E5%8F%AF%E8%A7%86%E5%8C%96%E6%B5%81%E7%A8%8B.png">
-<meta property="og:updated_time" content="2019-01-30T09:26:09.159Z">
+<meta property="og:updated_time" content="2019-01-30T09:35:25.414Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="客户端埋点方案介绍">
 <meta name="twitter:description" content="一、概念构建一个数据平台，大体上包括数据采集、数据上报、数据存储、数据计算以及数据可视化展示等几个重要的环节。其中，数据采集与上报是整个流程中重要的一环，只有确保前端数据生产的全面、准确、及时，最终产生的数据结果才是可靠的、有价值的。 为了解决前端埋点的准确性、及时性、开发效率等问题，业内各家公司从不同角度，提出了多种技术方案，这些方案大体上可以归为三类： 1、代码埋点：在需要埋点的节点上，手动调">
@@ -331,7 +331,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-01-30T17:26:09+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-30T17:35:25+08:00">
                 2019-01-30
               </time>
             
@@ -373,10 +373,9 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">热度&#58;</span>
+                 <span class="post-meta-item-text">阅读数&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
-                 <span>?</span>
              </span>
           
 
@@ -426,7 +425,7 @@
 <p>优点：开发、维护成本低；可以追溯历史数据；对业务代码侵入小</p>
 <p>缺点：高额流量和计算成本；无法灵活收集属性</p>
 </blockquote>
-<h4 id="三、全埋点"><a href="#三、全埋点" class="headerlink" title="三、全埋点"></a>三、全埋点</h4><p>它并不是真正的不需要埋点，而是前端自动采集全部事件并上报埋点数据，在后端数据计算时过滤出有用数据，代表方案是国内的GrowingIO。</p>
+<h4 id="3、全埋点"><a href="#3、全埋点" class="headerlink" title="3、全埋点"></a>3、全埋点</h4><p>它并不是真正的不需要埋点，而是前端自动采集全部事件并上报埋点数据，在后端数据计算时过滤出有用数据，代表方案是国内的GrowingIO。</p>
 <p>基本原理：利用AOP，在预编译阶段实现在不修改源代码的情况下给所有的View点击事件的回调方法内部添加埋点信息。</p>
 <blockquote>
 <p>AOP为Aspect Oriented Programming的缩写，意为：面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
@@ -664,7 +663,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、概念"><span class="nav-number">1.</span> <span class="nav-text">一、概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、介绍"><span class="nav-number">2.</span> <span class="nav-text">二、介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、代码埋点"><span class="nav-number">2.1.</span> <span class="nav-text">1、代码埋点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、可视化埋点"><span class="nav-number">2.2.</span> <span class="nav-text">2、可视化埋点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#View标识"><span class="nav-number">2.2.1.</span> <span class="nav-text">View标识</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可视化平台"><span class="nav-number">2.2.2.</span> <span class="nav-text">可视化平台</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、全埋点"><span class="nav-number">2.3.</span> <span class="nav-text">三、全埋点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#AspectJ"><span class="nav-number">2.3.1.</span> <span class="nav-text">AspectJ</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据查询"><span class="nav-number">2.3.2.</span> <span class="nav-text">数据查询</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、概念"><span class="nav-number">1.</span> <span class="nav-text">一、概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、介绍"><span class="nav-number">2.</span> <span class="nav-text">二、介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、代码埋点"><span class="nav-number">2.1.</span> <span class="nav-text">1、代码埋点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、可视化埋点"><span class="nav-number">2.2.</span> <span class="nav-text">2、可视化埋点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#View标识"><span class="nav-number">2.2.1.</span> <span class="nav-text">View标识</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可视化平台"><span class="nav-number">2.2.2.</span> <span class="nav-text">可视化平台</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、全埋点"><span class="nav-number">2.3.</span> <span class="nav-text">3、全埋点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#AspectJ"><span class="nav-number">2.3.1.</span> <span class="nav-text">AspectJ</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据查询"><span class="nav-number">2.3.2.</span> <span class="nav-text">数据查询</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
