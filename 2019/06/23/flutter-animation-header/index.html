@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="客户端,埋点,">
+  <meta name="keywords" content="客户端,Flutter,">
 
 
 
@@ -79,21 +79,20 @@
 
 
 
-<meta name="description" content="一、概念构建一个数据平台，大体上包括数据采集、数据上报、数据存储、数据计算以及数据可视化展示等几个重要的环节。其中，数据采集与上报是整个流程中重要的一环，只有确保前端数据生产的全面、准确、及时，最终产生的数据结果才是可靠的、有价值的。 为了解决前端埋点的准确性、及时性、开发效率等问题，业内各家公司从不同角度，提出了多种技术方案，这些方案大体上可以归为三类： 1、代码埋点：在需要埋点的节点上，手动调">
-<meta name="keywords" content="客户端,埋点">
+<meta name="description" content="Flutter实现可折叠标题栏先看效果图：  实现方案：在ScrollView里面添加两个头布局（展开布局 + 收缩布局），展开布局开始显示，收缩布局开始隐藏。监听页面滑动，当滑动到指定位置时，展开布局隐藏，收缩布局显示。 具体代码： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454">
+<meta name="keywords" content="客户端,Flutter">
 <meta property="og:type" content="article">
-<meta property="og:title" content="客户端埋点方案介绍">
-<meta property="og:url" content="http://yoursite.com/2019/01/29/client-track-introduce/index.html">
+<meta property="og:title" content="Flutter实现可折叠标题栏">
+<meta property="og:url" content="http://yoursite.com/2019/06/23/flutter-animation-header/index.html">
 <meta property="og:site_name" content="博客空间">
-<meta property="og:description" content="一、概念构建一个数据平台，大体上包括数据采集、数据上报、数据存储、数据计算以及数据可视化展示等几个重要的环节。其中，数据采集与上报是整个流程中重要的一环，只有确保前端数据生产的全面、准确、及时，最终产生的数据结果才是可靠的、有价值的。 为了解决前端埋点的准确性、及时性、开发效率等问题，业内各家公司从不同角度，提出了多种技术方案，这些方案大体上可以归为三类： 1、代码埋点：在需要埋点的节点上，手动调">
+<meta property="og:description" content="Flutter实现可折叠标题栏先看效果图：  实现方案：在ScrollView里面添加两个头布局（展开布局 + 收缩布局），展开布局开始显示，收缩布局开始隐藏。监听页面滑动，当滑动到指定位置时，展开布局隐藏，收缩布局显示。 具体代码： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://shorthand.oss-cn-beijing.aliyuncs.com/image/sdk_track_viewpath.png">
-<meta property="og:image" content="https://shorthand.oss-cn-beijing.aliyuncs.com/image/sdk_track_%E5%8F%AF%E8%A7%86%E5%8C%96%E6%B5%81%E7%A8%8B.png">
-<meta property="og:updated_time" content="2019-01-30T09:47:05.035Z">
+<meta property="og:image" content="https://shorthand.oss-cn-beijing.aliyuncs.com/source/12c904c1f57bc12addd590c02051bba3.gif">
+<meta property="og:updated_time" content="2019-06-23T14:46:11.808Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="客户端埋点方案介绍">
-<meta name="twitter:description" content="一、概念构建一个数据平台，大体上包括数据采集、数据上报、数据存储、数据计算以及数据可视化展示等几个重要的环节。其中，数据采集与上报是整个流程中重要的一环，只有确保前端数据生产的全面、准确、及时，最终产生的数据结果才是可靠的、有价值的。 为了解决前端埋点的准确性、及时性、开发效率等问题，业内各家公司从不同角度，提出了多种技术方案，这些方案大体上可以归为三类： 1、代码埋点：在需要埋点的节点上，手动调">
-<meta name="twitter:image" content="https://shorthand.oss-cn-beijing.aliyuncs.com/image/sdk_track_viewpath.png">
+<meta name="twitter:title" content="Flutter实现可折叠标题栏">
+<meta name="twitter:description" content="Flutter实现可折叠标题栏先看效果图：  实现方案：在ScrollView里面添加两个头布局（展开布局 + 收缩布局），展开布局开始显示，收缩布局开始隐藏。监听页面滑动，当滑动到指定位置时，展开布局隐藏，收缩布局显示。 具体代码： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454">
+<meta name="twitter:image" content="https://shorthand.oss-cn-beijing.aliyuncs.com/source/12c904c1f57bc12addd590c02051bba3.gif">
 
 
 
@@ -123,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/29/client-track-introduce/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/23/flutter-animation-header/">
 
 
 
 
 
-  <title>客户端埋点方案介绍 | 博客空间</title>
+  <title>Flutter实现可折叠标题栏 | 博客空间</title>
   
 
 
@@ -298,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/29/client-track-introduce/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/23/flutter-animation-header/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SidXu">
@@ -315,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">客户端埋点方案介绍</h1>
+          <h1 class="post-title" itemprop="name headline">Flutter实现可折叠标题栏</h1>
         
 
         <div class="post-meta">
@@ -331,8 +330,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-01-30T17:47:05+08:00">
-                2019-01-30
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-23T22:46:11+08:00">
+                2019-06-23
               </time>
             
           </span>
@@ -350,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/设计/" itemprop="url" rel="index">
-                    <span itemprop="name">设计</span>
+                  <a href="/categories/开发/" itemprop="url" rel="index">
+                    <span itemprop="name">开发</span>
                   </a>
                 </span>
 
@@ -367,7 +366,7 @@
 
           
           
-             <span id="/2019/01/29/client-track-introduce/" class="leancloud_visitors" data-flag-title="客户端埋点方案介绍">
+             <span id="/2019/06/23/flutter-animation-header/" class="leancloud_visitors" data-flag-title="Flutter实现可折叠标题栏">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -398,49 +397,12 @@
       
 
       
-        <h3 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h3><p>构建一个数据平台，大体上包括数据采集、数据上报、数据存储、数据计算以及数据可视化展示等几个重要的环节。其中，数据采集与上报是整个流程中重要的一环，只有确保前端数据生产的全面、准确、及时，最终产生的数据结果才是可靠的、有价值的。</p>
-<p>为了解决前端埋点的准确性、及时性、开发效率等问题，业内各家公司从不同角度，提出了多种技术方案，这些方案大体上可以归为三类：</p>
-<p>1、代码埋点：在需要埋点的节点上，手动调用埋点方法，实现埋点数据的获取；</p>
-<p>2、可视化埋点：通过可视化的方式配置采集节点并生成配置文件，客户端解析配置文件，在需要埋点的节点自动添加埋点代码，并上报埋点数据；</p>
-<p>3、全埋点：客户端自动采集全部埋点数据并上报，通过可视化的方式查询埋点数据并显示；</p>
-<h3 id="二、介绍"><a href="#二、介绍" class="headerlink" title="二、介绍"></a>二、介绍</h3><h4 id="1、代码埋点"><a href="#1、代码埋点" class="headerlink" title="1、代码埋点"></a>1、代码埋点</h4><p>在需要埋点的节点调用接口直接上传或者定时上传埋点数据，友盟、百度统计等第三方数据统计服务商大都采用这种方案；</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">button.setOnClickListener(new View.OnClickListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> void onClick(View v) &#123;</span><br><span class="line">        <span class="comment">// 业务代码</span></span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="comment">// 埋点上报</span></span><br><span class="line">        <span class="keyword">val</span> properties = JSONObject()</span><br><span class="line">        properties.put(<span class="string">"page"</span>, <span class="string">"MainActivity"</span>)</span><br><span class="line">        properties.put(<span class="string">"type"</span>, <span class="string">"围棋"</span>)</span><br><span class="line">        TrackerManager.instance.commonTracker.onEvent(<span class="string">"click"</span>, properties)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>优点：使用灵活、方便设置自定义业务相关的属性</p>
-<p>缺点：埋点成本高、更新成本高</p>
-</blockquote>
-<h4 id="2、可视化埋点"><a href="#2、可视化埋点" class="headerlink" title="2、可视化埋点"></a>2、可视化埋点</h4><p>通过可视化工具配置采集节点，在前端自动解析配置并上报埋点数据，从而实现所谓的“无痕埋点”，代表方案是已经开源的<a href="https://github.com/mixpanel" target="_blank" rel="noopener">Mixpanel</a>；</p>
-<h5 id="View标识"><a href="#View标识" class="headerlink" title="View标识"></a>View标识</h5><p>为了自动生成事件标识，我们需要获取每个控件自身的ID、类名以及位于所属父组件的Index等特征信息，并逐级向上遍历找到根节点。根节点一般是手动标记的，如果没有标记则默认是视图层次树的顶层节点。最后，将遍历产生的路径上所有节点的特征信息组合在一起，就是这个View的标识。</p>
-<p><img src="https://shorthand.oss-cn-beijing.aliyuncs.com/image/sdk_track_viewpath.png" alt="View标识"></p>
-<p>上面选中View的标识是：</p>
-<blockquote>
-<p> ContentFrameLayout/ConstraintLayout[0]/AppCompatButton[0]#btClick</p>
-</blockquote>
-<p>在同一个页面，View标识是唯一的，再加上页面名称和包名，就能够在当前App中唯一确定一个View对象，唯一确定View对象之后，就能够针对当前View进行埋点。</p>
-<p><u><em>由于需求的改变，同一页面在不同版本肯能会发生变化，因此需要做容错处理。</em></u></p>
-<h5 id="可视化平台"><a href="#可视化平台" class="headerlink" title="可视化平台"></a>可视化平台</h5><p>可视化平台一般通过Web页面展示，客户端通过Socket与Web进行连接：</p>
-<p><img src="https://shorthand.oss-cn-beijing.aliyuncs.com/image/sdk_track_%E5%8F%AF%E8%A7%86%E5%8C%96%E6%B5%81%E7%A8%8B.png" alt="可视化流程"></p>
-<p>客户端打开APP之后，会从服务端拉取包含View标识的配置文件，就可以针对具体View进行埋点了。埋点信息的查询可通过与View标识关联的描述信息进行查询。</p>
-<blockquote>
-<p>优点：开发、维护成本低；可以按需埋点，灵活性好；对业务代码侵入小</p>
-<p>缺点：界面的结构发生变化时，圈选的待监测元素可能会失效；支持的控件和事件类型有限；无法灵活地收集到上下文属性</p>
-</blockquote>
-<h4 id="3、全埋点"><a href="#3、全埋点" class="headerlink" title="3、全埋点"></a>3、全埋点</h4><p>它并不是真正的不需要埋点，而是前端自动采集全部事件并上报埋点数据，在后端数据计算时过滤出有用数据，代表方案是国内的GrowingIO。</p>
-<p>基本原理：利用AOP，在预编译阶段实现在不修改源代码的情况下给所有的View点击事件的回调方法内部添加埋点信息。</p>
-<blockquote>
-<p>AOP为Aspect Oriented Programming的缩写，意为：面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
-</blockquote>
-<h5 id="AspectJ"><a href="#AspectJ" class="headerlink" title="AspectJ"></a>AspectJ</h5><blockquote>
-<p>AspectJ是一个java实现的AOP框架，它能够对java代码进行AOP编译（一般在编译期进行），让java代码具有AspectJ的AOP功能，可以这样说AspectJ是目前实现AOP框架中最成熟，功能最丰富的语言，更幸运的是，AspectJ与java程序完全兼容，几乎是无缝关联，因此对于有java编程基础的工程师，上手和使用都非常容易。</p>
-</blockquote>
-<p>下面我们以一个例子，来看一下如何对点击事件进行全埋点的：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewAspectJ</span> </span>&#123;</span><br><span class="line">	<span class="meta">@After(<span class="meta-string">"execution(void android.view.View.OnClickListener.onClick(..)) &amp;&amp; args(view)"</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">onViewClickAOP</span><span class="params">(view: <span class="type">View</span>)</span></span> &#123;</span><br><span class="line">        TrackerManager.instance.viewTracker.onClick(view)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上代码在编译后就会在工程中所有实现了OnClickListener接口的onClick方法内部插入以上代码，从而对View的点击事件进行全埋点。</p>
-<h5 id="数据查询"><a href="#数据查询" class="headerlink" title="数据查询"></a>数据查询</h5><p>View事件埋点信息的搜集过程中同样会搜集当前View的标识，也通过可视化平台将View标识和事件描述信息进行关联，然后通过查询描述信息就能查询到View事件了，很方便。</p>
-<blockquote>
-<p>优点：开发、维护成本低；可以追溯历史数据；对业务代码侵入小</p>
-<p>缺点：高额流量和计算成本；无法灵活收集属性</p>
-</blockquote>
+        <h4 id="Flutter实现可折叠标题栏"><a href="#Flutter实现可折叠标题栏" class="headerlink" title="Flutter实现可折叠标题栏"></a>Flutter实现可折叠标题栏</h4><p>先看效果图：</p>
+<p><img src="https://shorthand.oss-cn-beijing.aliyuncs.com/source/12c904c1f57bc12addd590c02051bba3.gif" alt=""></p>
+<h5 id="实现方案："><a href="#实现方案：" class="headerlink" title="实现方案："></a>实现方案：</h5><p>在ScrollView里面添加两个头布局（展开布局 + 收缩布局），展开布局开始显示，收缩布局开始隐藏。监听页面滑动，当滑动到指定位置时，展开布局隐藏，收缩布局显示。</p>
+<p>具体代码：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:flutter/material.dart'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'search.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HomePage</span> <span class="keyword">extends</span> <span class="title">StatefulWidget</span> </span>&#123;</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  State&lt;StatefulWidget&gt; createState() &#123;</span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> implement createState</span></span><br><span class="line">    <span class="keyword">return</span> _HomePage();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">_HomePage</span> <span class="keyword">extends</span> <span class="title">State</span>&lt;<span class="title">HomePage</span>&gt; </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> _showNarrow = <span class="keyword">false</span>;</span><br><span class="line">  <span class="keyword">var</span> _oldShowState = <span class="keyword">false</span>;</span><br><span class="line">  <span class="keyword">var</span> _scrollController = ScrollController();</span><br><span class="line"></span><br><span class="line">  <span class="built_in">bool</span> _onNotification(ScrollNotification notification) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">bool</span> show = _scrollController.offset &gt; <span class="number">100</span>;</span><br><span class="line">    <span class="keyword">if</span> (show != _oldShowState) &#123;</span><br><span class="line">      _oldShowState = show;</span><br><span class="line">      setState(() &#123;</span><br><span class="line">        _showNarrow = show;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">void</span> _functionTap(<span class="built_in">int</span> index) &#123;</span><br><span class="line">    Navigator.push(</span><br><span class="line">      context,</span><br><span class="line">      <span class="keyword">new</span> MaterialPageRoute(</span><br><span class="line">          builder: (context) =&gt; <span class="keyword">new</span> SearchPage(</span><br><span class="line">                type: index,</span><br><span class="line">              )),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> implement build</span></span><br><span class="line">    <span class="keyword">return</span> Scaffold(</span><br><span class="line">        body: Stack(</span><br><span class="line">      children: &lt;Widget&gt;[</span><br><span class="line">        NotificationListener(</span><br><span class="line">            onNotification: _onNotification,</span><br><span class="line">            child: CustomScrollView(</span><br><span class="line">              slivers: &lt;Widget&gt;[</span><br><span class="line">                SliverGrid(</span><br><span class="line">                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(</span><br><span class="line">                      crossAxisCount: <span class="number">1</span>, childAspectRatio: <span class="number">1.8</span>),</span><br><span class="line">                  delegate: SliverChildBuilderDelegate(</span><br><span class="line">                    (BuildContext context, <span class="built_in">int</span> index) &#123;</span><br><span class="line">                      <span class="keyword">return</span> _ExpandWidget(show: !_showNarrow);</span><br><span class="line">                    &#125;,</span><br><span class="line">                    childCount: <span class="number">1</span>,</span><br><span class="line">                  ),</span><br><span class="line">                ),</span><br><span class="line">                SliverFixedExtentList(</span><br><span class="line">                  itemExtent: <span class="number">50.0</span>,</span><br><span class="line">                  delegate: <span class="keyword">new</span> SliverChildBuilderDelegate(</span><br><span class="line">                      (context, index) =&gt; <span class="keyword">new</span> ListTile(</span><br><span class="line">                            title: <span class="keyword">new</span> Text(<span class="string">"List item <span class="subst">$index<span class="string">"),</span></span></span></span><br><span class="line"><span class="string"><span class="subst"><span class="string">                            subtitle: new Text("</span></span>this is subtitle"</span>),</span><br><span class="line">                          )),</span><br><span class="line">                )</span><br><span class="line">              ],</span><br><span class="line">              controller: _scrollController,</span><br><span class="line">            )),</span><br><span class="line">        _NarrowWidget(</span><br><span class="line">          show: _showNarrow,</span><br><span class="line">        ),</span><br><span class="line">      ],</span><br><span class="line">    ));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ignore: must_be_immutable</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">_ExpandWidget</span> <span class="keyword">extends</span> <span class="title">StatefulWidget</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> show = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">  _ExpandWidget(&#123;<span class="keyword">this</span>.show&#125;);</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  State&lt;StatefulWidget&gt; createState() &#123;</span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> implement createState</span></span><br><span class="line">    <span class="keyword">return</span> _ExpandWidgetState();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">_ExpandWidgetState</span> <span class="keyword">extends</span> <span class="title">State</span>&lt;<span class="title">_ExpandWidget</span>&gt; </span>&#123;</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> implement build</span></span><br><span class="line">    <span class="keyword">if</span> (widget.show) &#123;</span><br><span class="line">      <span class="keyword">return</span> Stack(</span><br><span class="line">        children: &lt;Widget&gt;[</span><br><span class="line">          Image.asset(<span class="string">'images/bg_home_header1.jpg'</span>,</span><br><span class="line">              fit: BoxFit.fill, height: <span class="number">100</span>),</span><br><span class="line">          Positioned(</span><br><span class="line">            bottom: <span class="number">15.0</span>,</span><br><span class="line">            left: <span class="number">20</span>,</span><br><span class="line">            right: <span class="number">20</span>,</span><br><span class="line">            child: Container(</span><br><span class="line">              child: Row(</span><br><span class="line">                children: &lt;Widget&gt;[</span><br><span class="line">                  Icon(Icons.search),</span><br><span class="line">                  Text(<span class="string">"请输入关键字查询"</span>),</span><br><span class="line">                ],</span><br><span class="line">              ),</span><br><span class="line">              decoration: <span class="keyword">new</span> BoxDecoration(</span><br><span class="line">                color: Color(<span class="number">0xFFFFFFFF</span>),</span><br><span class="line">                borderRadius: <span class="keyword">new</span> BorderRadius.circular((<span class="number">5.0</span>)),</span><br><span class="line">              ),</span><br><span class="line">              padding: EdgeInsets.all(<span class="number">8.0</span>),</span><br><span class="line">            ),</span><br><span class="line">          ),</span><br><span class="line">        ],</span><br><span class="line">        fit: StackFit.expand,</span><br><span class="line">        alignment: Alignment.bottomCenter,</span><br><span class="line">      );</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> Container();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ignore: must_be_immutable</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">_NarrowWidget</span> <span class="keyword">extends</span> <span class="title">StatefulWidget</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> show = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">  _NarrowWidget(&#123;<span class="keyword">this</span>.show&#125;);</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  State&lt;StatefulWidget&gt; createState() &#123;</span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> implement createState</span></span><br><span class="line">    <span class="keyword">return</span> _NarrowWidgetState();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">_NarrowWidgetState</span> <span class="keyword">extends</span> <span class="title">State</span>&lt;<span class="title">_NarrowWidget</span>&gt; </span>&#123;</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> implement build</span></span><br><span class="line">    <span class="keyword">if</span> (widget.show) &#123;</span><br><span class="line">      <span class="keyword">return</span> Stack(</span><br><span class="line">        children: &lt;Widget&gt;[</span><br><span class="line">          Positioned(</span><br><span class="line">              top: <span class="number">0.0</span>,</span><br><span class="line">              left: <span class="number">0.0</span>,</span><br><span class="line">              right: <span class="number">0.0</span>,</span><br><span class="line">              child: Container(</span><br><span class="line">                padding: EdgeInsets.fromLTRB(<span class="number">20</span>, <span class="number">48</span>, <span class="number">20</span>, <span class="number">15</span>),</span><br><span class="line">                color: Color(<span class="number">0xFF52707A</span>),</span><br><span class="line">                child: Container(</span><br><span class="line">                  child: Row(</span><br><span class="line">                    children: &lt;Widget&gt;[</span><br><span class="line">                      Icon(Icons.search),</span><br><span class="line">                      Text(<span class="string">"请输入关键字查询"</span>),</span><br><span class="line">                    ],</span><br><span class="line">                  ),</span><br><span class="line">                  decoration: <span class="keyword">new</span> BoxDecoration(</span><br><span class="line">                    color: Color(<span class="number">0xFFFFFFFF</span>),</span><br><span class="line">                    borderRadius: <span class="keyword">new</span> BorderRadius.circular((<span class="number">5.0</span>)),</span><br><span class="line">                  ),</span><br><span class="line">                  padding: EdgeInsets.all(<span class="number">8.0</span>),</span><br><span class="line">                ),</span><br><span class="line">              )),</span><br><span class="line">        ],</span><br><span class="line">        fit: StackFit.expand,</span><br><span class="line">        alignment: Alignment.topCenter,</span><br><span class="line">      );</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> Container();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>本示例仅是提供实现方案，对于代码中写死的一些值，为了更好的UI效果，需要根据具体实现时计算。</p>
 
       
     </div>
@@ -492,7 +454,7 @@
           
             <a href="/tags/客户端/" rel="tag"># 客户端</a>
           
-            <a href="/tags/埋点/" rel="tag"># 埋点</a>
+            <a href="/tags/Flutter/" rel="tag"># Flutter</a>
           
         </div>
       
@@ -505,8 +467,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/29/android-sqilt-multi-process/" rel="next" title="Android 跨进程操作Sqlite数据库">
-                <i class="fa fa-chevron-left"></i> Android 跨进程操作Sqlite数据库
+              <a href="/2019/01/29/client-track-introduce/" rel="next" title="客户端埋点方案介绍">
+                <i class="fa fa-chevron-left"></i> 客户端埋点方案介绍
               </a>
             
           </div>
@@ -514,10 +476,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/23/flutter-animation-header/" rel="prev" title="Flutter实现可折叠标题栏">
-                Flutter实现可折叠标题栏 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -667,7 +625,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、概念"><span class="nav-number">1.</span> <span class="nav-text">一、概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、介绍"><span class="nav-number">2.</span> <span class="nav-text">二、介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、代码埋点"><span class="nav-number">2.1.</span> <span class="nav-text">1、代码埋点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、可视化埋点"><span class="nav-number">2.2.</span> <span class="nav-text">2、可视化埋点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#View标识"><span class="nav-number">2.2.1.</span> <span class="nav-text">View标识</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可视化平台"><span class="nav-number">2.2.2.</span> <span class="nav-text">可视化平台</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、全埋点"><span class="nav-number">2.3.</span> <span class="nav-text">3、全埋点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#AspectJ"><span class="nav-number">2.3.1.</span> <span class="nav-text">AspectJ</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据查询"><span class="nav-number">2.3.2.</span> <span class="nav-text">数据查询</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Flutter实现可折叠标题栏"><span class="nav-number">1.</span> <span class="nav-text">Flutter实现可折叠标题栏</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实现方案："><span class="nav-number">1.1.</span> <span class="nav-text">实现方案：</span></a></li></ol></li></ol></div>
             
 
           </div>
